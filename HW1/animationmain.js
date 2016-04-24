@@ -159,8 +159,6 @@ function AgumonRun(game, spritesheet) {
 }
 
 AgumonRun.prototype.draw = function () {
-    console.log("run x: " + this.x);
-    console.log(this.game.timer.gameTime);
     this.animation.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
 }
 
@@ -185,14 +183,12 @@ function AgumonStop(game, spritesheet) {
 }
 
 AgumonStop.prototype.draw = function () {
-    console.log("stop x: " + this.x);
     if (this.lastEntity.animation.isDone() && this.x !== null) {
         this.animation.drawFrame(this.game.clockTick, this.ctx, this.x,this.y);
     }
 }
 
 AgumonStop.prototype.update = function () {
-    console.log("update stop x: " + this.x);
     if (this.lastEntity.animation.isDone() && !this.animation.isDone()) {
         if (this.x === null) {
             this.x = this.lastEntity.x;
